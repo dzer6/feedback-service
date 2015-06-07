@@ -9,12 +9,8 @@
     [clojure.tools.logging :as log]
     [environ.core          :as e]))
 
-(log/info "All environment variables:" (System/getenv))
-(log/info "OPENSHIFT_CLOJURE_HTTP_IP" (System/getenv "OPENSHIFT_CLOJURE_HTTP_IP"))
-(log/info "OPENSHIFT_CLOJURE_HTTP_PORT" (System/getenv "OPENSHIFT_CLOJURE_HTTP_PORT"))
-
-(def startup-params {:ip (e/env :OPENSHIFT_CLOJURE_HTTP_IP)
-                     :port (-> :OPENSHIFT_CLOJURE_HTTP_PORT e/env read-string) })
+(def startup-params {:ip (System/getenv "OPENSHIFT_CLOJURE_HTTP_IP")
+                     :port (-> "OPENSHIFT_CLOJURE_HTTP_PORT" System/getenv read-string) })
 
 (defroutes my-routes
   (GET  "/"      req "123"))
