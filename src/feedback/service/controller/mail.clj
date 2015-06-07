@@ -15,7 +15,7 @@
                      :body (str "From " name ":\nPhone:" phone "\n\n"  body)
                      :type "text/plain; charset=utf-8"}))
 
-(defn send [request]
+(defn handle [request]
   (log/info "send mail request =" request)
   (let [{:keys [name email phone body]} (:body request)
         phone (if (s/blank? phone) "None" phone)]

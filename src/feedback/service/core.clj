@@ -14,7 +14,7 @@
                      :port (or (-> "OPENSHIFT_CLOJURE_HTTP_PORT" System/getenv read-string) 8080)})
 
 (defroutes my-routes
-  (JPOST  "/send" request mail/send))
+  (JPOST  "/send" request mail/handle))
 
 (def my-ring-handler
   (-> my-routes
