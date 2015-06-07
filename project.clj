@@ -10,7 +10,9 @@
                  [org.clojure/tools.logging      "0.2.6"]
                  [org.slf4j/slf4j-api            "1.7.7"]
                  [org.slf4j/log4j-over-slf4j     "1.7.7"]
-                 [ch.qos.logback/logback-classic "1.1.2"]]
+                 [ch.qos.logback/logback-classic "1.1.2"]
+                 [cheshire "5.3.1"]
+                 [com.draines/postal "1.11.1"]]
   :main ^:skip-aot feedback.service.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
