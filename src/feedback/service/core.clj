@@ -19,5 +19,5 @@
 (defn -main [& args]
   (http-kit-server/run-server
     (var my-ring-handler)
-    {:ip (e/env "OPENSHIFT_CLOJURE_HTTP_IP")
-     :port (Integer/parseInt (e/env "OPENSHIFT_CLOJURE_HTTP_PORT")) }))
+    {:ip (e/env "OPENSHIFT_CLOJURE_IP")
+     :port (Integer/parseInt (e/env "OPENSHIFT_CLOJURE_PORT")) }))
