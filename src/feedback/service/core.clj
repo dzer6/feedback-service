@@ -9,6 +9,9 @@
     [clojure.tools.logging :as log]
     [environ.core          :as e]))
 
+(def startup-params {:ip (e/env "OPENSHIFT_CLOJURE_IP")
+                     :port (Integer/parseInt (e/env "OPENSHIFT_CLOJURE_PORT")) })
+
 (defroutes my-routes
   (GET  "/"      req "123"))
 
@@ -17,7 +20,5 @@
       handler/site))
 
 (defn -main [& args]
-  (http-kit-server/run-server
-    (var my-ring-handler)
-    {:ip (e/env "OPENSHIFT_CLOJURE_IP")
-     :port (Integer/parseInt (e/env "OPENSHIFT_CLOJURE_PORT")) }))
+  (log/info "startup params =" startup-params)
+  (http-kit-server/run-server (var my-ring-handler) startup-params))
