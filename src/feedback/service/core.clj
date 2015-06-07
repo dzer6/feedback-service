@@ -9,6 +9,8 @@
     [clojure.tools.logging :as log]
     [environ.core          :as e]))
 
+(log/info "ri:" (System/getenv))
+
 (def startup-params {:ip (e/env "OPENSHIFT_CLOJURE_IP")
                      :port (Integer/parseInt (e/env "OPENSHIFT_CLOJURE_PORT")) })
 
