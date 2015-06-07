@@ -11,8 +11,8 @@
 
 (log/info "All environment variables:" (System/getenv))
 
-(def startup-params {:ip (e/env "OPENSHIFT_CLOJURE_IP")
-                     :port (Integer/parseInt (e/env "OPENSHIFT_CLOJURE_PORT")) })
+(def startup-params {:ip (e/env :OPENSHIFT_CLOJURE_HTTP_IP)
+                     :port (-> :OPENSHIFT_CLOJURE_HTTP_PORT e/env read-string) })
 
 (defroutes my-routes
   (GET  "/"      req "123"))
