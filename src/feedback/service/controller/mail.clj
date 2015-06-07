@@ -12,7 +12,7 @@
                     {:from email
                      :to (System/getenv "FEEDBACK_SERVICE_MAIL_DESTINATION")
                      :subject (str "[Good Production Feedback Form] [" name "][" email "][" phone "]")
-                     :body (str "From " name ":\nPhone:" phone "\n\n"  body)
+                     :body (str "From: " name "\nPhone: " phone "\n\n"  body)
                      :type "text/plain; charset=utf-8"}))
 
 (defn handle [request]
