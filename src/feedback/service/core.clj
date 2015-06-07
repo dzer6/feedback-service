@@ -6,8 +6,7 @@
     [compojure.route       :as route]
     [compojure.handler     :as handler]
     [ring.util.response    :as rur]
-    [clojure.tools.logging :as log]
-    [environ.core          :as e]))
+    [clojure.tools.logging :as log]))
 
 (def startup-params {:ip (System/getenv "OPENSHIFT_CLOJURE_HTTP_IP")
                      :port (-> "OPENSHIFT_CLOJURE_HTTP_PORT" System/getenv read-string) })
